@@ -1,0 +1,56 @@
+.galleryContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 95%;
+  margin-top: 65px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 9.74vw;
+  width: 100%;
+}
+
+.galleryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.imageBox {
+  height: 14vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  & img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.imageTitle {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-size: 11px;
+  color: rgb(79, 79, 79);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: normal;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
