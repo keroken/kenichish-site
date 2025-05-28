@@ -10,8 +10,9 @@
 .gallery {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 9.74vw;
+  gap: 5.14vw;
   width: 100%;
+  margin: auto;
 }
 
 .galleryItem {
@@ -27,7 +28,7 @@
 }
 
 .imageBox {
-  height: 14vw;
+  height: 19.85vw;
   overflow: hidden;
   display: flex;
   flex-direction: column;
