@@ -7,7 +7,7 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/architecture" element={<App />} />
         <Route path="/web" element={<App />} />
         <Route path="/interactive" element={<App />} />
         <Route path="/graphic" element={<App />} />

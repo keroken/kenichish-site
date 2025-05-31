@@ -6,7 +6,7 @@ export const MainNav = () => {
     <nav>
       <ul className={styles.mainNav}>
         <li>
-          <Link to="/">Architecture</Link>
+          <Link to="/architecture">Architecture</Link>
         </li>
         <li>
           <Link to="/web">Web/IOT</Link>
