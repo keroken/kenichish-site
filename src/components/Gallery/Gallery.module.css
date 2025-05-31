@@ -8,11 +8,16 @@
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   gap: 5.14vw;
   margin: auto;
   opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .galleryItem {
@@ -25,7 +30,6 @@
   margin: 0;
   padding: 0;
   border: 0;
-  transition: opacity 2s ease-in-out;
 }
 
 .imageBox {
@@ -36,17 +40,9 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  width: 100%;
   opacity: 0;
-  transition: opacity 2s ease-in-out;
-  & img {
-    width: auto;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.7s ease-in-out;
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
+  transition: opacity 0.5s ease;
 }
 
 .imageTitle {

@@ -2,12 +2,14 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./Gallery.module.css";
 import { galleryData } from "../../data/galleryData";
+import type { GalleryItem } from "../../data/galleryData";
+import { MediaItem } from "../MediaItem/MediaItem";
 
-export const Gallery = () => {
+export const Gallery: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname.substring(1); // Remove leading slash
-  const [isVisible, setIsVisible] = useState(false);
-  const [currentData, setCurrentData] = useState(galleryData);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [currentData, setCurrentData] = useState<GalleryItem[]>(galleryData);
 
   // Handle URL changes and trigger animations
   useEffect(() => {
@@ -34,17 +36,11 @@ export const Gallery = () => {
 
   return (
     <main className={styles.galleryContainer}>
-      <div
-        className={`${styles.gallery} ${isVisible ? styles.fadeIn : ""}`}
-        style={{
-          gridTemplateColumns:
-            currentPath === "web" ? "repeat(2, 1fr)" : "repeat(5, 1fr)",
-        }}
-      >
-        {currentData.map((image, index) => (
+      <div className={`${styles.gallery} ${isVisible ? styles.fadeIn : ""}`}>
+        {currentData.map((item, index) => (
           <figure
             className={styles.galleryItem}
-            key={`${image.src}-${index}`}
+            key={`${item.src}-${index}`}
             style={{
               overflow: currentPath === "web" ? "unset" : "hidden",
             }}
@@ -52,13 +48,9 @@ export const Gallery = () => {
             <div
               className={`${styles.imageBox} ${isVisible ? styles.fadeIn : ""}`}
             >
-              <img
-                src={image.src}
-                alt={image.alt || image.title}
-                className={styles.image}
-              />
+              <MediaItem item={item} />
             </div>
-            <figcaption className={styles.imageTitle}>{image.title}</figcaption>
+            <figcaption className={styles.imageTitle}>{item.title}</figcaption>
           </figure>
         ))}
       </div>
