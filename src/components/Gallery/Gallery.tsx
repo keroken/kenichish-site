@@ -13,9 +13,21 @@ export const Gallery = () => {
 
   return (
     <main className={styles.galleryContainer}>
-      <div className={styles.gallery}>
+      <div
+        className={styles.gallery}
+        style={{
+          gridTemplateColumns:
+            currentPath === "web" ? "repeat(2, 1fr)" : "repeat(5, 1fr)",
+        }}
+      >
         {filteredData.map((image, index) => (
-          <figure className={styles.galleryItem} key={index}>
+          <figure
+            className={styles.galleryItem}
+            key={index}
+            style={{
+              overflow: currentPath === "web" ? "unset" : "hidden",
+            }}
+          >
             <div className={styles.imageBox}>
               <img
                 key={index}
