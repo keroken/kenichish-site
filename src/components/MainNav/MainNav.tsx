@@ -1,23 +1,26 @@
-import styles from './MainNav.module.css';
+import { Link } from "react-router-dom";
+import styles from "./MainNav.module.css";
 
 export const MainNav = () => {
   return (
-    <ul className={styles.mainNav}>
-      <li>
-        <a href="">Architecture</a>
-      </li>
-      <li>
-        <a href="">Web/IOT</a>
-      </li>
-      <li>
-        <a href="">Interactive</a>
-      </li>
-      <li>
-        <a href="">Graphic</a>
-      </li>
-      <li>
-        <a href="">Others</a>
-      </li>
-    </ul>
+    <nav>
+      <ul className={styles.mainNav}>
+        <li>
+          <Link to="/">Architecture</Link>
+        </li>
+        <li>
+          <Link to="/web">Web/IOT</Link>
+        </li>
+        <li>
+          <Link to="/interactive">Interactive</Link>
+        </li>
+        <li>
+          <Link to="/graphic">Graphic</Link>
+        </li>
+        <li>
+          <Link to="/others">Others</Link>
+        </li>
+      </ul>
+    </nav>
   );
 };
