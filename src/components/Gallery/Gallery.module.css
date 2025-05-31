@@ -12,6 +12,7 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 5.14vw;
   margin: auto;
+  opacity: 0;
 }
 
 .galleryItem {
@@ -24,6 +25,7 @@
   margin: 0;
   padding: 0;
   border: 0;
+  transition: opacity 2s ease-in-out;
 }
 
 .imageBox {
@@ -34,6 +36,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
   & img {
     width: auto;
     height: 100%;
@@ -57,4 +61,8 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.fadeIn {
+  opacity: 1;
 }
