@@ -172,4 +172,55 @@ export const galleryData: GalleryItem[] = [
     category: "interactive",
     type: "video",
   },
+  {
+    title: "Infographic MBTI",
+    description: "Infographic about MBTI",
+    src: "images/graphic/infographic_mbti_17b.png",
+    category: "graphic",
+    type: "image",
+  },
+  {
+    title: "Typography Centaur",
+    description: "Typography poster about Centaur",
+    src: "images/graphic/Typography_centaur_06.png",
+    category: "graphic",
+    type: "image",
+  },
+  {
+    title: "Metal Balance",
+    description:
+      "A sculpture made of metal rods and pipes that balances on a single point",
+    src: "images/others/metal_balance_01.jpg",
+    category: "others",
+    type: "image",
+  },
+  {
+    title: "Metal Balance",
+    description:
+      "A sculpture made of metal rods and pipes that balances on a single point",
+    src: "images/others/metal_balance_02.jpg",
+    category: "others",
+    type: "image",
+  },
+  {
+    title: "Tree Gate",
+    description: "Tree installation at Carleton College",
+    src: "images/others/tree_installation_01.jpg",
+    category: "others",
+    type: "image",
+  },
+  {
+    title: "Tree Gate",
+    description: "Tree installation at Carleton College",
+    src: "images/others/tree_installation_02.jpg",
+    category: "others",
+    type: "image",
+  },
+  {
+    title: "Tree Gate",
+    description: "Tree installation at Carleton College",
+    src: "images/others/tree_installation_03.jpg",
+    category: "others",
+    type: "image",
+  },
 ];
