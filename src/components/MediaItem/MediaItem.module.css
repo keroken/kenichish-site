@@ -1,6 +1,7 @@
 .image {
   width: auto;
   height: 100%;
+  aspect-ratio: 1 / 1.4;
   object-fit: cover;
   transition: transform 0.7s ease-in-out;
 }
