@@ -3,9 +3,10 @@ import styles from "./MediaItem.module.css";
 
 interface MediaItemProps {
   item: GalleryItem;
+  modal?: boolean;
 }
 
-export const MediaItem: React.FC<MediaItemProps> = ({ item }) => {
+export const MediaItem: React.FC<MediaItemProps> = ({ item, modal }) => {
   // Check if the item is a YouTube video
   const isYouTubeVideo = item.type === "video";
 
@@ -35,7 +36,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item }) => {
     }
 
     return (
-      <div className={styles.videoWrapper}>
+      <div className={modal ? `${styles.videoWrapper} ${styles.isVideo}` : styles.videoWrapper}>
         <iframe
           width="100%"
           height="100%"
@@ -44,6 +45,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item }) => {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          style={modal ? undefined : { pointerEvents: 'none' }}
         ></iframe>
       </div>
     );
@@ -53,7 +55,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item }) => {
       <img
         src={item.src}
         alt={item.alt || item.title}
-        className={styles.image}
+        className={modal ? `${styles.image} ${styles.modalMedia}` : styles.image}
       />
     );
   }

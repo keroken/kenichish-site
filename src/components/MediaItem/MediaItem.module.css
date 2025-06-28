@@ -6,8 +6,18 @@
   transition: transform 0.7s ease-in-out;
 }
 
+.image.modalMedia {
+  aspect-ratio: auto;
+  object-fit: contain;
+  transition: none;
+}
+
 .image:hover {
   transform: scale(1.1);
+}
+
+.image.modalMedia:hover {
+  transform: none;
 }
 
 /* YouTube video responsiveness */
@@ -37,4 +47,18 @@
   background-color: #f0f0f0;
   color: #d04545;
   font-size: 14px;
+}
+
+.modalMedia {
+  max-width: 80vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.isVideo {
+  width: 80vw;
+  height: auto;
 }
