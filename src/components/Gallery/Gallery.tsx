@@ -4,12 +4,15 @@ import styles from "./Gallery.module.css";
 import { galleryData } from "../../data/galleryData";
 import type { GalleryItem } from "../../data/galleryData";
 import { MediaItem } from "../MediaItem/MediaItem";
+import { Modal } from "../Modal";
 
 export const Gallery: React.FC = () => {
   const location = useLocation();
   const currentPath = location.pathname.substring(1); // Remove leading slash
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [currentData, setCurrentData] = useState<GalleryItem[]>(galleryData);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
   // Handle URL changes and trigger animations
   useEffect(() => {
@@ -44,9 +47,18 @@ export const Gallery: React.FC = () => {
             style={{
               overflow: currentPath === "web" ? "unset" : "hidden",
             }}
+            tabIndex={0}
+            role="button"
+            aria-label={`Open ${item.title}`}
           >
             <div
               className={`${styles.imageBox} ${isVisible ? styles.fadeIn : ""}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedItem(item);
+                setModalOpen(true);
+              }}
+              style={{ cursor: 'pointer' }}
             >
               <MediaItem item={item} />
             </div>
@@ -54,6 +66,10 @@ export const Gallery: React.FC = () => {
           </figure>
         ))}
       </div>
+      <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        {selectedItem && <MediaItem item={selectedItem} modal />}
+        {selectedItem && <div style={{textAlign: 'center'}}>{selectedItem.title}</div>}
+      </Modal>
     </main>
   );
 };
