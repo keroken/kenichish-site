@@ -57,7 +57,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item, modal, layout }) => 
         src={item.src}
         alt={item.alt || item.title}
         className={modal ? `${styles.image} ${styles.modalMedia}` : styles.image}
-        style={{aspectRatio: layout === "landscape" ? "unset" : "1 / 1.4"}}
+        style={{aspectRatio: modal ? "unset" : layout === "landscape" ? "unset" : "1 / 1.4"}}
       />
     );
   }
