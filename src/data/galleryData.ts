@@ -1,10 +1,38 @@
 // Define type for gallery items
+export interface GalleryCategory {
+  title: "architecture" | "web" | "interactive" | "graphic" | "others";
+  layout: "portrait" | "landscape";
+}
+
+export const galleryCategories: GalleryCategory[] = [
+  {
+    title: "architecture",
+    layout: "portrait",
+  },
+  {
+    title: "web",
+    layout: "landscape",
+  },
+  {
+    title: "interactive",
+    layout: "landscape",
+  },
+  {
+    title: "graphic",
+    layout: "portrait",
+  },
+  {
+    title: "others",
+    layout: "portrait",
+  },
+];
+
 export interface GalleryItem {
   title: string;
   description: string;
   src: string;
   alt?: string;
-  category: "architecture" | "web" | "interactive" | "graphic" | "others";
+  category: GalleryCategory["title"];
   type: "image" | "video";
 }
 

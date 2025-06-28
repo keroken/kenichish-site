@@ -1,12 +1,13 @@
-import type { GalleryItem } from "../../data/galleryData";
+import type { GalleryCategory, GalleryItem } from "../../data/galleryData";
 import styles from "./MediaItem.module.css";
 
 interface MediaItemProps {
   item: GalleryItem;
   modal?: boolean;
+  layout?: GalleryCategory["layout"];
 }
 
-export const MediaItem: React.FC<MediaItemProps> = ({ item, modal }) => {
+export const MediaItem: React.FC<MediaItemProps> = ({ item, modal, layout }) => {
   // Check if the item is a YouTube video
   const isYouTubeVideo = item.type === "video";
 
@@ -36,7 +37,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item, modal }) => {
     }
 
     return (
-      <div className={modal ? `${styles.videoWrapper} ${styles.isVideo}` : styles.videoWrapper}>
+      <div className={modal ? `${styles.videoWrapper} ${styles.isVideo}` : styles.videoWrapper} style={{aspectRatio: layout === "landscape" ? "unset" : "1 / 1.4"}}>
         <iframe
           width="100%"
           height="100%"
@@ -56,6 +57,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item, modal }) => {
         src={item.src}
         alt={item.alt || item.title}
         className={modal ? `${styles.image} ${styles.modalMedia}` : styles.image}
+        style={{aspectRatio: layout === "landscape" ? "unset" : "1 / 1.4"}}
       />
     );
   }

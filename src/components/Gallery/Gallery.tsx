@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from "./Gallery.module.css";
-import { galleryData } from "../../data/galleryData";
-import type { GalleryItem } from "../../data/galleryData";
+import { galleryData, galleryCategories } from "../../data/galleryData";
+import type { GalleryCategory, GalleryItem } from "../../data/galleryData";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { Modal } from "../Modal";
 
@@ -13,9 +13,14 @@ export const Gallery: React.FC = () => {
   const [currentData, setCurrentData] = useState<GalleryItem[]>(galleryData);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const [currentLayout, setCurrentLayout] = useState<GalleryCategory["layout"] | null>(null);
 
   // Handle URL changes and trigger animations
   useEffect(() => {
+    const category = galleryCategories.find((item) => item.title === currentPath);
+    if (category) {
+      setCurrentLayout(category.layout);
+    }
     // First fade out
     setIsVisible(false);
 
@@ -60,14 +65,14 @@ export const Gallery: React.FC = () => {
               }}
               style={{ cursor: 'pointer' }}
             >
-              <MediaItem item={item} />
+              <MediaItem item={item} layout={currentLayout || undefined}/>
             </div>
             <figcaption className={styles.imageTitle}>{item.title}</figcaption>
           </figure>
         ))}
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
-        {selectedItem && <MediaItem item={selectedItem} modal />}
+        {selectedItem && <MediaItem item={selectedItem} modal layout={currentLayout || undefined}/>}
         {selectedItem && <div className={styles.isModal} style={{textAlign: 'center'}}>{selectedItem.title}</div>}
       </Modal>
     </main>
