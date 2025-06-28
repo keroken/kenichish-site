@@ -12,11 +12,10 @@
 }
 
 .modal {
-  background: #fff;
+  background: transparent;
   max-width: 90vw;
   max-height: 90vh;
   position: relative;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;

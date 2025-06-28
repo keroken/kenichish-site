@@ -57,8 +57,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  width: 100%;
+  background: #fff;
 }
 
 .fadeIn {
   opacity: 1;
+}
+
+.isModal {
+  color: #fff !important;
+  background: transparent !important;
 }

@@ -68,7 +68,7 @@ export const Gallery: React.FC = () => {
       </div>
       <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
         {selectedItem && <MediaItem item={selectedItem} modal />}
-        {selectedItem && <div style={{textAlign: 'center'}}>{selectedItem.title}</div>}
+        {selectedItem && <div className={styles.isModal} style={{textAlign: 'center'}}>{selectedItem.title}</div>}
       </Modal>
     </main>
   );
