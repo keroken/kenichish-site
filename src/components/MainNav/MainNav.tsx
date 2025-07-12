@@ -1,26 +1,54 @@
 import { Link } from "react-router-dom";
 import styles from "./MainNav.module.css";
+import { useMediaQuery } from "../../hooks/useMediaQuery";
+import { useState } from "react";
 
 export const MainNav = () => {
+  const isMobile = useMediaQuery("(max-width: 767px)");
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleHamburgerClick = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  // Close menu when switching from mobile to desktop
+  if (!isMobile && menuOpen) {
+    setMenuOpen(false);
+  }
+
   return (
-    <nav>
-      <ul className={styles.mainNav}>
-        <li>
-          <Link to="/architecture">Architecture</Link>
-        </li>
-        <li>
-          <Link to="/web">Web/IOT</Link>
-        </li>
-        <li>
-          <Link to="/interactive">Interactive</Link>
-        </li>
-        <li>
-          <Link to="/graphic">Graphic</Link>
-        </li>
-        <li>
-          <Link to="/others">Others</Link>
-        </li>
-      </ul>
+    <nav className={styles.mainNavContainer}>
+      {isMobile && (
+        <button
+          className={styles.hamburger + (menuOpen ? ' ' + styles.open : '')}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={handleHamburgerClick}
+        >
+          <span className={styles.hamburgerBar}></span>
+          <span className={styles.hamburgerBar}></span>
+          <span className={styles.hamburgerBar}></span>
+        </button>
+      )}
+      {(menuOpen || !isMobile) && (
+        <ul className={styles.mainNav + (isMobile ? " " + styles.mobileMenu : "") }>
+          <li>
+            <Link to="/architecture" onClick={() => setMenuOpen(false)}>Architecture</Link>
+          </li>
+          <li>
+            <Link to="/web" onClick={() => setMenuOpen(false)}>Web/IOT</Link>
+          </li>
+          <li>
+            <Link to="/interactive" onClick={() => setMenuOpen(false)}>Interactive</Link>
+          </li>
+          <li>
+            <Link to="/graphic" onClick={() => setMenuOpen(false)}>Graphic</Link>
+          </li>
+          <li>
+            <Link to="/others" onClick={() => setMenuOpen(false)}>Others</Link>
+          </li>
+        </ul>
+      )}
     </nav>
   );
 };
+

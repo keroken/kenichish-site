@@ -49,9 +49,6 @@ export const Gallery: React.FC = () => {
           <figure
             className={styles.galleryItem}
             key={`${item.src}-${index}`}
-            style={{
-              overflow: currentPath === "web" ? "unset" : "hidden",
-            }}
             tabIndex={0}
             role="button"
             aria-label={`Open ${item.title}`}

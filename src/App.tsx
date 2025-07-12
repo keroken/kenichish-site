@@ -6,8 +6,12 @@ function App() {
 
   return (
     <div className={styles.root}>
-      <h1 className={styles.title}>KENICHI SHINAGAWA</h1>
-      <MainNav />
+      <header className={styles.header}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>KENICHI SHINAGAWA</h1>
+        </div>
+        <MainNav />
+      </header>
       <Gallery />
     </div>
   )

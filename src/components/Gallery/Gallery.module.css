@@ -20,12 +20,6 @@
   transition: opacity 0.5s ease;
 }
 
-@media screen and (max-width: 767px) {
-  .gallery {
-    gap: 13vw;
-  }
-}
-
 .galleryItem {
   display: flex;
   flex-direction: column;
@@ -51,12 +45,6 @@
   transition: opacity 0.5s ease;
 }
 
-@media screen and (max-width: 767px) {
-  .imageBox {
-    height: 133vw;
-  }
-}
-
 .imageTitle {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   font-size: 11px;
@@ -80,4 +68,19 @@
 .isModal {
   color: #fff !important;
   background: transparent !important;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .galleryContainer {
+    margin-top: 20px;
+  }
+
+  .gallery {
+    gap: 13vw;
+  }
+
+  .imageBox {
+    height: fit-content;
+  }
 }

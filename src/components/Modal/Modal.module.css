@@ -21,8 +21,8 @@
 
 .modal {
   background: transparent;
-  max-width: 90vw;
-  max-height: 90vh;
+  max-width: 95vw;
+  max-height: 95vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -49,4 +49,14 @@
   color: #ddd;
   cursor: pointer;
   z-index: 10;
+}
+
+@media screen and (max-width: 767px) {
+  .closeButton {
+    top: unset;
+    bottom: -80px;
+    right: unset;
+    width: 100%;
+    font-size: 3rem;
+  }
 }
