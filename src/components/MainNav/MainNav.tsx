@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
 import styles from "./MainNav.module.css";
 import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { useState } from "react";
 
-export const MainNav = () => {
-  const isMobile = useMediaQuery("(max-width: 767px)");
-  const [menuOpen, setMenuOpen] = useState(false);
+interface MainNavProps {
+  menuOpen: boolean;
+  setMenuOpen: (menuOpen: boolean) => void;
+}
+
+export const MainNav = ({ menuOpen, setMenuOpen }: MainNavProps) => {
+  const isMobile = useMediaQuery("(max-width: 767px)"); 
 
   const handleHamburgerClick = () => {
-    setMenuOpen((prev) => !prev);
+    setMenuOpen(!menuOpen);
   };
 
   // Close menu when switching from mobile to desktop

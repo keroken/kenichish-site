@@ -6,7 +6,11 @@ import type { GalleryCategory, GalleryItem } from "../../data/galleryData";
 import { MediaItem } from "../MediaItem/MediaItem";
 import { Modal } from "../Modal";
 
-export const Gallery: React.FC = () => {
+interface GalleryProps {
+  menuOpen: boolean;
+}
+
+export const Gallery = ({ menuOpen }: GalleryProps) => {
   const location = useLocation();
   const currentPath = location.pathname.substring(1); // Remove leading slash
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -43,12 +47,12 @@ export const Gallery: React.FC = () => {
   }, [currentPath]);
 
   useEffect(() => {
-    if (modalOpen) {
+    if (modalOpen || menuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';
     }
-  }, [modalOpen]);
+  }, [modalOpen, menuOpen]);
 
   return (
     <main className={styles.galleryContainer}>
