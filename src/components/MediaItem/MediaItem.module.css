@@ -76,4 +76,9 @@
   .videoWrapper {
     position: unset;
   }
+
+  .isVideo {
+    width: 100vw;
+    height: auto;
+  }
 }
