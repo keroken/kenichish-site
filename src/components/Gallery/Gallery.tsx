@@ -14,7 +14,7 @@ export const Gallery: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
   const [currentLayout, setCurrentLayout] = useState<GalleryCategory["layout"] | null>(null);
-
+  
   // Handle URL changes and trigger animations
   useEffect(() => {
     const category = galleryCategories.find((item) => item.title === currentPath);
@@ -41,6 +41,14 @@ export const Gallery: React.FC = () => {
 
     return () => clearTimeout(dataTimer);
   }, [currentPath]);
+
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [modalOpen]);
 
   return (
     <main className={styles.galleryContainer}>
