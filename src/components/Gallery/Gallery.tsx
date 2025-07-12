@@ -28,7 +28,7 @@ export const Gallery: React.FC = () => {
     const dataTimer = setTimeout(() => {
       const newData = currentPath
         ? galleryData.filter((item) => item.category === currentPath)
-        : galleryData;
+        : galleryData.filter((item) => item.category === "architecture");
       setCurrentData(newData);
 
       // Fade in with new data
