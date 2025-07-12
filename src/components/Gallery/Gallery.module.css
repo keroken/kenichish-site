@@ -20,6 +20,12 @@
   transition: opacity 0.5s ease;
 }
 
+@media screen and (max-width: 767px) {
+  .gallery {
+    gap: 13vw;
+  }
+}
+
 .galleryItem {
   display: flex;
   flex-direction: column;
@@ -43,6 +49,12 @@
   width: 100%;
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+
+@media screen and (max-width: 767px) {
+  .imageBox {
+    height: 133vw;
+  }
 }
 
 .imageTitle {
