@@ -8,7 +8,7 @@ function App() {
     <div className={styles.root}>
       <header className={styles.header}>
         <div className={styles.titleContainer}>
-          <h1 className={styles.title}>KENICHI SHINAGAWA</h1>
+          <h1 className={styles.title} onClick={() => window.location.href = '/'}>KENICHI SHINAGAWA</h1>
         </div>
         <MainNav />
       </header>
