@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Modal.module.css";
+import { useMobile } from "../../hooks";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,13 +9,14 @@ interface ModalProps {
 }
 
 export const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+  const isMobile = useMobile();
   if (!isOpen) return null;
 
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div
         className={styles.modal}
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside modal
+        onClick={(e) => isMobile ? onClose() : e.stopPropagation()} // Prevent closing when clicking inside modal
       >
         <button className={styles.closeButton} onClick={onClose}>&times;</button>
         {children}
