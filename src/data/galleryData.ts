@@ -31,6 +31,7 @@ export interface GalleryItem {
   title: string;
   description: string;
   src: string;
+  url?: string;
   alt?: string;
   category: GalleryCategory["title"];
   type: "image" | "video";
@@ -156,6 +157,7 @@ export const galleryData: GalleryItem[] = [
     title: "3D Wheelchair Basketball Website",
     description: "Top page of 3D Wheelchair Basketball Website",
     src: "images/web/3d-wheelchair-basketball.webp",
+    url: "https://3d-wc-basketball.com/",
     alt: "3D Wheelchair Basketball Website",
     category: "web",
     type: "image",

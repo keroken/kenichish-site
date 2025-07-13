@@ -68,6 +68,10 @@ export const Gallery = ({ menuOpen }: GalleryProps) => {
             <div
               className={`${styles.imageBox} ${isVisible ? styles.fadeIn : ""}`}
               onClick={(e) => {
+                if (item.url) {
+                  window.open(item.url, '_blank');
+                  return;
+                }
                 e.stopPropagation();
                 setSelectedItem(item);
                 setModalOpen(true);
