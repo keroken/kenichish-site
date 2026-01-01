@@ -32,6 +32,15 @@
   border: 0;
 }
 
+.galleryItem:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 4px;
+}
+
+.galleryItem:focus:not(:focus-visible) {
+  outline: none;
+}
+
 .imageBox {
   height: 19.85vw;
   overflow: hidden;
@@ -46,7 +55,7 @@
 }
 
 .imageTitle {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
   font-size: 11px;
   color: rgb(79, 79, 79);
   letter-spacing: 1px;

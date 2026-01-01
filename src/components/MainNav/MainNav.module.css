@@ -26,6 +26,14 @@
   & a:hover {
     color: rgb(0, 0, 0);
   }
+  & a:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  & a:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -89,5 +97,13 @@
   }
   .hamburger.open .hamburgerBar:nth-child(3) {
     transform: translateY(-11px) rotate(-45deg);
+  }
+  .hamburger:focus {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .hamburger:focus:not(:focus-visible) {
+    outline: none;
   }
 }

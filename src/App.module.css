@@ -2,12 +2,30 @@
 /* This is a CSS module for styling the App component */
 
 .root {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   padding-top: 30px;
+}
+
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #0066cc;
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 1000;
+  border-radius: 4px;
+}
+
+.skipLink:focus {
+  top: 0;
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 .header {
@@ -33,6 +51,17 @@
   letter-spacing: 2.5px;
   text-transform: uppercase;
   font-weight: normal;
+  cursor: pointer;
+}
+
+.title:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.title:focus:not(:focus-visible) {
+  outline: none;
 }
 
 @media screen and (max-width: 767px) {

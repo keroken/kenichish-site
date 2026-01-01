@@ -46,6 +46,7 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item, modal, layout }) => 
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+          tabIndex={modal ? 0 : -1}
           style={modal ? undefined : { pointerEvents: 'none' }}
         ></iframe>
       </div>
