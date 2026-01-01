@@ -29,7 +29,9 @@ export const MediaItem: React.FC<MediaItemProps> = ({ item, modal, layout }) => 
 
     const videoId = getYouTubeId(item.src);
     // Make sure we have a valid ID before creating embed URL
-    const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+    // Add autoplay parameter when in modal
+    const autoplayParam = modal ? "?autoplay=1" : "";
+    const embedUrl = videoId ? `https://www.youtube.com/embed/${videoId}${autoplayParam}` : "";
 
     if (!embedUrl) {
       console.error("Invalid YouTube URL:", item.src);
